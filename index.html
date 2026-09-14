@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B0C0F" />
+    <meta name="description" content="SMMБаза помогает публиковать посты в сообществах VK, объединять их в супергруппы и автоматически собирать отчёты со скриншотами." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SMMБаза — автопостинг VK и отчёты со скриншотами" />
+    <meta property="og:description" content="Публикации, супергруппы и отчёты со скриншотами в одном рабочем кабинете." />
+    <meta property="og:image" content="./public/media/smmbaza-og-cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="./public/media/smmbaza-og-cover.png" />
+    <title>SMMБаза — автопостинг VK и отчёты со скриншотами</title>
+    <link rel="icon" href="./public/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./public/favicon.svg" />
+    <link rel="stylesheet" href="./src/styles.css?v=5" />
+    <script type="application/ld+json" id="structured-data">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SMMБаза",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "SMMБаза помогает публиковать посты в сообществах VK, объединять их в супергруппы и автоматически собирать отчёты со скриншотами.",
+        "inLanguage": "ru"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="SMMБаза — в начало">
+          <img src="./logo.svg" alt="SMMБаза" width="178" height="46" />
+        </a>
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <a href="#supergroups">Возможности</a>
+          <a href="#platform">Платформа</a>
+          <a href="#audience">Для кого</a>
+          <a href="#supergroups">Супергруппы</a>
+          <a href="#reports">Отчёты</a>
+          <a href="#workflow">Как это работает</a>
+          <a href="#trust">Безопасность</a>
+          <a href="#roadmap">Развитие</a>
+        </nav>
+        <div class="header-actions">
+          <a class="login-link" data-vk-login hidden href="">Войти через VK</a>
+          <a class="button button-small button-primary js-demo-cta" href="#demo">Запросить демо <span data-icon="ArrowUpRight"></span></a>
+          <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+            <span data-icon="Menu"></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация" hidden data-mobile-menu>
+        <a href="#supergroups">Возможности</a>
+        <a href="#platform">Платформа</a>
+        <a href="#audience">Для кого</a>
+        <a href="#supergroups">Супергруппы</a>
+        <a href="#reports">Отчёты</a>
+        <a href="#workflow">Как это работает</a>
+        <a href="#trust">Безопасность</a>
+        <a href="#roadmap">Развитие</a>
+        <a class="button button-primary js-demo-cta" href="#demo">Запросить демо <span data-icon="ArrowUpRight"></span></a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section" id="top" aria-labelledby="hero-title">
+        <div class="hero-glow hero-glow-accent" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-violet" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">SMMБаза <span>·</span> управление сообществами VK</p>
+            <h1 id="hero-title">Автопостинг VK и отчёты со скриншотами</h1>
+            <p class="lead">Войдите через VK, подключите сообщества, объедините их в супергруппы и запускайте публикации. SMMБаза сама соберёт отчёт за выбранный период.</p>
+            <div class="hero-actions">
+              <a class="button button-primary js-demo-cta" href="#demo">Запросить демо <span data-icon="ArrowUpRight"></span></a>
+              <a class="button button-secondary" href="#workflow">Посмотреть, как работает <span data-icon="ArrowDown"></span></a>
+            </div>
+            <p class="trust-line"><span class="trust-dot" aria-hidden="true"></span> Работа через официальный VK API <span aria-hidden="true">·</span> Разработано в России</p>
+            <ol class="process-list" aria-label="Как работает SMMБаза">
+              <li><span class="step-icon" data-icon="LogIn"></span><span>Войти через VK</span></li>
+              <li><span class="step-icon" data-icon="Link"></span><span>Подключить сообщества</span></li>
+              <li><span class="step-icon" data-icon="Layers3"></span><span>Создать супергруппу</span></li>
+              <li><span class="step-icon" data-icon="Send"></span><span>Опубликовать</span></li>
+              <li><span class="step-icon" data-icon="FileCheck2"></span><span>Получить отчёт</span></li>
+            </ol>
+          </div>
+          <div class="hero-media media-wrap">
+            <div data-media-id="hero-system"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-surface platform-tour-section" id="platform" aria-labelledby="platform-title">
+        <div class="container">
+          <div class="section-heading-row platform-tour-heading">
+            <div class="section-copy narrow-copy">
+              <p class="eyebrow">Платформа</p>
+              <h2 id="platform-title">Так выглядит рабочий кабинет SMMБазы</h2>
+            </div>
+            <p class="section-lead heading-lead">Шесть реальных экранов продукта — от списка проектов до готового отчёта со скриншотами.</p>
+          </div>
+          <div class="platform-carousel" data-platform-carousel>
+            <div class="platform-carousel-stage">
+              <figure class="platform-slide" data-platform-slide data-platform-index="0"><div data-media-id="platform-projects"></div></figure>
+              <figure class="platform-slide" data-platform-slide data-platform-index="1" hidden><div data-media-id="platform-project"></div></figure>
+              <figure class="platform-slide" data-platform-slide data-platform-index="2" hidden><div data-media-id="platform-supergroups"></div></figure>
+              <figure class="platform-slide" data-platform-slide data-platform-index="3" hidden><div data-media-id="platform-new-post"></div></figure>
+              <figure class="platform-slide" data-platform-slide data-platform-index="4" hidden><div data-media-id="platform-post-registry"></div></figure>
+              <figure class="platform-slide" data-platform-slide data-platform-index="5" hidden><div data-media-id="platform-report"></div></figure>
+            </div>
+            <div class="platform-carousel-controls">
+              <button class="carousel-arrow" type="button" data-platform-prev aria-label="Предыдущий экран"><span data-icon="ArrowLeft"></span></button>
+              <span class="platform-carousel-counter" data-platform-counter aria-live="polite">01 / 06</span>
+              <button class="carousel-arrow" type="button" data-platform-next aria-label="Следующий экран"><span data-icon="ArrowRight"></span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section audience-section" id="audience" aria-labelledby="audience-title">
+        <div class="container">
+          <div class="section-heading-row audience-heading">
+            <div class="section-copy narrow-copy">
+              <p class="eyebrow">Для кого</p>
+              <h2 id="audience-title">Когда публикаций много, нужен один рабочий контур</h2>
+            </div>
+            <p class="section-lead heading-lead">SMMБаза помогает командам, которые ведут сразу несколько клиентов, регионов или десятков сообществ VK.</p>
+          </div>
+          <div class="audience-grid">
+            <article class="audience-card"><span class="audience-icon" data-icon="UsersRound"></span><h3>SMM-агентствам</h3><p>Собирайте проекты клиентов, ответственных и отчётность в одном кабинете.</p></article>
+            <article class="audience-card"><span class="audience-icon" data-icon="FolderKanban"></span><h3>Контент-командам</h3><p>Запускайте одну публикацию сразу в нужные сообщества и сохраняйте контроль над версиями.</p></article>
+            <article class="audience-card"><span class="audience-icon" data-icon="Store"></span><h3>Маркетинговым отделам</h3><p>Разделяйте рабочие роли и держите публикации, ссылки и результаты в одном процессе.</p></article>
+            <article class="audience-card"><span class="audience-icon" data-icon="ChartNoAxesCombined"></span><h3>Тем, кто сдаёт отчёты</h3><p>Передавайте клиенту понятный результат со скриншотами за выбранный период.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-surface" id="supergroups" aria-labelledby="supergroups-title">
+        <div class="container split-grid split-grid-supergroups">
+          <div class="section-copy">
+            <p class="eyebrow">Супергруппы</p>
+            <h2 id="supergroups-title">Десятки сообществ. Одна супергруппа.</h2>
+            <p class="section-lead">Объединяйте паблики одного клиента, региона или кампании и управляйте размещениями как единым проектом.</p>
+            <p>Создайте публикацию один раз. Для каждого сообщества оставьте общие параметры или задайте свою версию текста, изображения, watermark и времени выхода.</p>
+            <p class="accent-note">Одна настройка для всех — или точная адаптация каждого размещения.</p>
+          </div>
+          <div class="section-media"><div data-media-id="supergroups"></div></div>
+          <ul class="feature-list" aria-label="Возможности супергрупп">
+            <li><span class="feature-icon" data-icon="Type"></span><span><strong>Свой текст</strong><small>Адаптируйте сообщение под аудиторию конкретного сообщества.</small></span></li>
+            <li><span class="feature-icon" data-icon="Image"></span><span><strong>Своё изображение</strong><small>Назначьте отдельный креатив или используйте общий для всей супергруппы.</small></span></li>
+            <li><span class="feature-icon" data-icon="Stamp"></span><span><strong>Свой watermark</strong><small>Применяйте нужную маркировку отдельно для каждой площадки.</small></span></li>
+            <li><span class="feature-icon" data-icon="Clock3"></span><span><strong>Своё время</strong><small>Планируйте публикации одновременно или разводите их по расписанию.</small></span></li>
+          </ul>
+          <div class="section-media secondary-media"><div data-media-id="post-variants"></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="reports" aria-labelledby="reports-title">
+        <div class="container split-grid reports-grid">
+          <div class="section-media reports-media"><div data-media-id="report-builder"></div></div>
+          <div class="section-copy">
+            <p class="eyebrow">Отчётность</p>
+            <h2 id="reports-title">Отчёт собирается сам — в нужном формате и времени</h2>
+            <p class="section-lead">Выберите проект, сообщества и отчётный период. Система найдёт публикации, сделает скриншоты по заданным параметрам и подготовит единый документ.</p>
+            <p>Не нужно по очереди открывать десятки страниц, выставлять размер окна, сохранять файлы и вручную переносить их в отчёт.</p>
+            <ul class="chip-list" aria-label="Параметры отчёта">
+              <li><span data-icon="FolderKanban"></span>Проект или контракт</li>
+              <li><span data-icon="Users"></span>Супергруппа или сообщества</li>
+              <li><span data-icon="CalendarRange"></span>Отчётный период</li>
+              <li><span data-icon="Camera"></span>Параметры скриншота</li>
+              <li><span data-icon="Monitor"></span>Разрешение и соотношение</li>
+              <li><span data-icon="FileDown"></span>Итоговый документ</li>
+            </ul>
+            <p class="accent-note">От публикации до готового клиентского отчёта — в одном кабинете.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-surface comparison-section" id="comparison" aria-labelledby="comparison-title">
+        <div class="container">
+          <div class="section-heading-row comparison-heading">
+            <div class="section-copy narrow-copy">
+              <p class="eyebrow">До и после</p>
+              <h2 id="comparison-title">Один процесс вместо пяти ручных задач</h2>
+            </div>
+            <p class="section-lead heading-lead">Система собирает повторяющиеся действия в последовательный сценарий — от публикации до подтверждения результата.</p>
+          </div>
+          <div class="comparison-grid">
+            <article class="comparison-card comparison-card-muted">
+              <span class="comparison-kicker">Вручную</span>
+              <h3>Скриншоты, таблицы и чаты</h3>
+              <ul class="comparison-list">
+                <li><span data-icon="MousePointerClick"></span><span>Открывать каждую страницу и выставлять размер окна.</span></li>
+                <li><span data-icon="Camera"></span><span>Сохранять скриншоты и проверять, что ничего не пропущено.</span></li>
+                <li><span data-icon="FolderKanban"></span><span>Собирать ссылки, публикации и файлы в нескольких местах.</span></li>
+                <li><span data-icon="Clock3"></span><span>Переносить итог в отчёт перед отправкой клиенту.</span></li>
+              </ul>
+            </article>
+            <article class="comparison-card comparison-card-accent">
+              <span class="comparison-kicker">С SMMБазой</span>
+              <h3>Единый сценарий публикации и отчётности</h3>
+              <ul class="comparison-list">
+                <li><span data-icon="Check"></span><span>Один пост — нужные версии для выбранных сообществ.</span></li>
+                <li><span data-icon="Check"></span><span>Супергруппа хранит параметры размещений в одном месте.</span></li>
+                <li><span data-icon="Check"></span><span>Скриншоты собираются по заданному периоду и формату.</span></li>
+                <li><span data-icon="Check"></span><span>Готовый результат можно проверить и передать клиенту.</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section proof-section" id="proof" aria-labelledby="proof-title">
+        <div class="container">
+          <div class="section-heading-row proof-heading">
+            <div class="section-copy narrow-copy">
+              <p class="eyebrow">Факты о продукте</p>
+              <h2 id="proof-title">Цифры добавим, когда подтвердим их у команды</h2>
+            </div>
+            <p class="section-lead heading-lead">Пока здесь стоят безопасные временные формулировки — они отмечены звёздочкой и будут заменены перед публикацией.</p>
+          </div>
+          <div class="proof-grid">
+            <article class="proof-card"><strong>Уточняется*</strong><span>количество подключаемых сообществ</span></article>
+            <article class="proof-card"><strong>Уточняется*</strong><span>среднее время подготовки отчёта</span></article>
+            <article class="proof-card"><strong>Уточняется*</strong><span>объём публикаций за период</span></article>
+            <article class="proof-card"><strong>Уточняется*</strong><span>условия и формат подключения</span></article>
+          </div>
+          <p class="temporary-note"><span aria-hidden="true">*</span> Временный контент. Заменим на подтверждённые показатели, условия и сроки после согласования с командой продукта.</p>
+        </div>
+      </section>
+
+      <section class="section workflow-section" id="workflow" aria-labelledby="workflow-title">
+        <div class="container">
+          <div class="section-heading-row workflow-heading">
+            <div class="section-copy narrow-copy">
+              <p class="eyebrow">Рабочий процесс</p>
+              <h2 id="workflow-title">От проекта до готового отчёта</h2>
+            </div>
+            <p class="section-lead heading-lead">Три шага, которые команда проходит в одном кабинете: настроить контекст, подготовить публикацию и передать клиенту результат.</p>
+          </div>
+          <div class="workflow-grid">
+            <article class="workflow-card">
+              <div class="workflow-media"><div data-media-id="workflow-project"></div></div>
+              <div class="workflow-card-copy"><span class="workflow-index">01</span><h3>Настроить рабочее пространство</h3><p>Заказчики, проекты и ответственные собраны в одном месте.</p></div>
+            </article>
+            <article class="workflow-card">
+              <div class="workflow-media"><div data-media-id="workflow-post"></div></div>
+              <div class="workflow-card-copy"><span class="workflow-index">02</span><h3>Подготовить и опубликовать</h3><p>Текст, изображения, watermark и расписание задаются одним сценарием.</p></div>
+            </article>
+            <article class="workflow-card">
+              <div class="workflow-media"><div data-media-id="workflow-report"></div></div>
+              <div class="workflow-card-copy"><span class="workflow-index">03</span><h3>Собрать результат</h3><p>Публикации, скриншоты и метрики превращаются в готовый отчёт.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-surface connection-section" id="connection" aria-labelledby="connection-title">
+        <div class="container">
+          <div class="section-heading-row connection-heading">
+            <div class="section-copy narrow-copy">
+              <p class="eyebrow">Подключение VK</p>
+              <h2 id="connection-title">Старт без лишних настроек</h2>
+            </div>
+            <p class="section-lead heading-lead">Вы сами определяете, какие сообщества и права нужны команде. Дальше работа идёт в одном кабинете.</p>
+          </div>
+          <ol class="connection-steps">
+            <li><span class="connection-index">01</span><span data-icon="LogIn"></span><h3>Войти через VK</h3><p>Авторизуйтесь в привычном аккаунте и перейдите к подключению рабочих сообществ.</p></li>
+            <li><span class="connection-index">02</span><span data-icon="Link"></span><h3>Выбрать сообщества</h3><p>Подключите площадки, которыми вы управляете, и объедините их в супергруппы.</p></li>
+            <li><span class="connection-index">03</span><span data-icon="UsersRound"></span><h3>Настроить роли</h3><p>Разделите доступ между администраторами, проверяющими и участниками команды.</p></li>
+            <li><span class="connection-index">04</span><span data-icon="Send"></span><h3>Запустить публикацию</h3><p>Задайте текст, медиа, watermark и время — система подготовит размещения и отчёт.</p></li>
+          </ol>
+          <div class="connection-note"><span data-icon="BadgeCheck"></span><p>Работа строится через официальный VK API. Права доступа остаются под контролем вашей команды.</p><a class="button button-secondary" href="#demo">Разобрать мой сценарий <span data-icon="ArrowUpRight"></span></a></div>
+        </div>
+      </section>
+
+      <section class="section section-surface calculator-section" id="calculator" aria-labelledby="calculator-title">
+        <div class="container calculator-grid">
+          <div class="section-copy">
+            <p class="eyebrow">Калькулятор времени</p>
+            <h2 id="calculator-title">Сколько времени съедают скриншоты вручную?</h2>
+            <p class="section-lead">Задайте параметры своего процесса и сравните ручную трудоёмкость с подготовкой отчёта через SMMБазу.</p>
+            <p class="calculator-formula">Размещения = сообщества × посты<br />Скриншоты = размещения × скриншоты на публикацию</p>
+          </div>
+          <div class="calculator-card">
+            <form class="calculator-form" data-calculator>
+              <label class="slider-control"><span class="slider-label"><span>Количество сообществ</span><output data-slider-value="communities">30</output></span><input data-slider-input name="communities" type="range" min="1" max="1000" step="1" value="30" aria-label="Количество сообществ" /><span class="slider-scale"><span>1</span><span>1000</span></span></label>
+              <label class="slider-control"><span class="slider-label"><span>Постов за период</span><output data-slider-value="posts">20</output></span><input data-slider-input name="posts" type="range" min="1" max="1000" step="1" value="20" aria-label="Постов за период" /><span class="slider-scale"><span>1</span><span>1000</span></span></label>
+              <label class="slider-control"><span class="slider-label"><span>Скриншотов на публикацию</span><output data-slider-value="screenshotsPerPost">1</output></span><input data-slider-input name="screenshotsPerPost" type="range" min="1" max="10" step="1" value="1" aria-label="Скриншотов на публикацию" /><span class="slider-scale"><span>1</span><span>10</span></span></label>
+              <label class="slider-control"><span class="slider-label"><span>Минут на ручной скриншот</span><output data-slider-value="manualMinutesPerScreenshot">2 мин</output></span><input data-slider-input data-slider-unit="мин" name="manualMinutesPerScreenshot" type="range" min="0.1" max="30" step="0.1" value="2" aria-label="Минут на ручной скриншот" /><span class="slider-scale"><span>0,1 мин</span><span>30 мин</span></span></label>
+              <label class="slider-control"><span class="slider-label"><span>Минут на настройку отчёта</span><output data-slider-value="setupMinutes">10 мин</output></span><input data-slider-input data-slider-unit="мин" name="setupMinutes" type="range" min="1" max="240" step="1" value="10" aria-label="Минут на настройку отчёта" /><span class="slider-scale"><span>1 мин</span><span>240 мин</span></span></label>
+            </form>
+            <div class="calculator-results" aria-live="polite" data-calculator-results>
+              <div class="result-primary"><span class="result-number" data-result="manualHours">20</span><span>часов ручной работы</span></div>
+              <div class="result-row"><span>Размещения</span><strong data-result="placements">600</strong></div>
+              <div class="result-row"><span>Скриншоты</span><strong data-result="screenshots">600</strong></div>
+              <div class="result-row"><span>Настройка отчёта</span><strong><span data-result="setupMinutes">10</span> мин</strong></div>
+              <div class="result-row result-highlight"><span>Ориентировочная разница</span><strong data-result="difference">19 ч 50 мин</strong></div>
+            </div>
+            <p class="fine-print">Расчёт ориентировочный и зависит от процесса команды, объёма страниц и настроек отчёта.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section trust-section" id="trust" aria-labelledby="trust-title">
+        <div class="container trust-grid">
+          <div class="section-copy">
+            <p class="eyebrow">Надёжный рабочий процесс</p>
+            <h2 id="trust-title">Официальная работа с VK и контроль доступа</h2>
+            <p class="section-lead">Подключайте сообщества с нужными правами и управляйте публикациями из единого рабочего пространства.</p>
+          </div>
+          <div class="section-media trust-media"><div data-media-id="api-trust"></div></div>
+          <ul class="trust-list">
+            <li><span data-icon="BadgeCheck"></span><span><strong>Официальный VK API</strong><small>Публикации выполняются через официальные возможности VK, без браузерных макросов и серых расширений.</small></span></li>
+            <li><span data-icon="UsersRound"></span><span><strong>Роли команды</strong><small>Администраторы, проверяющие и участники получают доступ в соответствии со своей задачей.</small></span></li>
+            <li><span data-icon="Database"></span><span><strong>Данные в одном кабинете</strong><small>Публикации, ссылки, скриншоты и отчёты не теряются между таблицами и чатами.</small></span></li>
+            <li><span data-icon="MapPin"></span><span><strong>Разработано в России</strong><small>Продукт создан для работы российских SMM-команд и их клиентов.</small></span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section-surface platform-section" id="roadmap" aria-labelledby="roadmap-title">
+        <div class="container">
+          <div class="section-heading-row">
+            <div class="section-copy narrow-copy">
+              <p class="eyebrow">Экосистема SMMБазы</p>
+              <h2 id="roadmap-title">Уже работает. Дальше — больше.</h2>
+            </div>
+            <p class="section-lead heading-lead">Сейчас SMMБаза объединяет публикации, супергруппы, отчётность и Маркет. Следующий этап — AI-инструменты, контент и аналитика в том же кабинете.</p>
+          </div>
+          <div class="platform-columns">
+            <div>
+              <div class="status-heading"><span class="status-dot status-positive"></span><h3>Уже доступно</h3></div>
+              <ul class="availability-list">
+                <li><span data-icon="Send"></span><span><strong>Автопостинг</strong><small>Планирование и публикация в подключённых сообществах.</small></span></li>
+                <li><span data-icon="Layers3"></span><span><strong>Супергруппы</strong><small>Управление площадками как одним проектом.</small></span></li>
+                <li><span data-icon="FileCheck2"></span><span><strong>Отчёты</strong><small>Сбор публикаций и скриншотов за выбранный период.</small></span></li>
+                <li><span data-icon="Store"></span><span><strong>Маркет</strong><small>Раздел платформы для развития контентной экосистемы.</small></span></li>
+              </ul>
+            </div>
+            <div class="roadmap-column">
+              <div class="status-heading"><span class="status-dot status-violet"></span><h3>В разработке</h3></div>
+              <div class="roadmap-grid">
+                <article class="roadmap-card"><span class="roadmap-badge">Скоро</span><span data-icon="Sparkles"></span><h3>AI-помощник</h3><p>Один исходный пост — до 10 вариантов рерайта для разных площадок.</p></article>
+                <article class="roadmap-card"><span class="roadmap-badge">Скоро</span><span data-icon="Images"></span><h3>Генерация изображений</h3><p>Создание и адаптация визуалов внутри контентного процесса.</p></article>
+                <article class="roadmap-card"><span class="roadmap-badge">Скоро</span><span data-icon="ChartNoAxesCombined"></span><h3>Расширенная аналитика</h3><p>Оценка публикаций, площадок и кампаний.</p></article>
+                <article class="roadmap-card"><span class="roadmap-badge">Скоро</span><span data-icon="CalendarDays"></span><h3>Контент-планы и медиатека</h3><p>Планирование рубрик и повторное использование материалов.</p></article>
+              </div>
+            </div>
+          </div>
+          <div class="platform-media-grid">
+            <div class="media-card"><div data-media-id="market-existing"></div><p class="media-card-caption"><strong>Экосистема контента</strong><span>Медиатека, команда и площадки в одном контуре.</span></p></div>
+            <div class="media-card"><div data-media-id="ai-rewrites"></div><p class="media-card-caption"><strong>AI-варианты публикации</strong><span>Один исходник — несколько адаптированных версий.</span></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-section" id="demo" aria-labelledby="demo-title">
+        <div class="container final-grid">
+          <div class="final-copy">
+            <p class="eyebrow">Запросить демо</p>
+            <h2 id="demo-title">Покажем ваш процесс в SMMБазе</h2>
+            <p class="section-lead">Разберём работу на вашем количестве сообществ, публикаций и отчётов.</p>
+            <p>Разберём ваш сценарий: от подключения сообществ до готового отчёта.</p>
+            <p class="temporary-note"><span aria-hidden="true">*</span> Срок ответа и формат демо уточняются — этот текст временный.</p>
+            <div class="final-mark" aria-hidden="true"><span>01</span><span>от публикации<br />до отчёта</span></div>
+          </div>
+          <form class="demo-form" data-demo-form novalidate>
+            <div class="form-intro"><span class="form-kicker">Заявка на демо</span><p>Оставьте рабочий контакт — команда SMMБазы свяжется с вами.</p></div>
+            <div class="form-field"><label for="name">Имя <span class="required">обязательно</span></label><input id="name" name="name" type="text" autocomplete="name" aria-describedby="name-error" required /><span class="field-error" id="name-error" data-error-for="name"></span></div>
+            <div class="form-field"><label for="contact">Рабочий контакт <span class="required">обязательно</span></label><input id="contact" name="contact" type="text" autocomplete="email" placeholder="Telegram, email или телефон" aria-describedby="contact-error" required /><span class="field-error" id="contact-error" data-error-for="contact"></span></div>
+            <div class="form-row"><div class="form-field"><label for="communities">Количество сообществ <span class="optional">необязательно</span></label><input id="communities" name="communities" type="number" min="1" max="10000" inputmode="numeric" /></div><div class="form-field"><label for="comment">Комментарий <span class="optional">необязательно</span></label><input id="comment" name="comment" type="text" /></div></div>
+            <label class="checkbox-label"><input name="consent" type="checkbox" aria-describedby="consent-error" required /><span>Согласен с <a data-privacy-link hidden href="">политикой конфиденциальности</a><span data-privacy-fallback>политикой конфиденциальности</span></span></label>
+            <span class="field-error" id="consent-error" data-error-for="consent"></span>
+            <p class="demo-notice" data-demo-notice>Демо-режим: данные не отправляются на сервер. Форма показывает сценарий заявки.</p>
+            <button class="button button-primary form-submit" type="submit"><span data-submit-label>Получить разбор сценария</span><span data-icon="ArrowUpRight"></span></button>
+            <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section faq-section" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <div class="section-copy"><p class="eyebrow">FAQ</p><h2 id="faq-title">Коротко о главном</h2></div>
+          <div class="faq-list">
+            <details><summary>Что такое SMMБаза?<span data-icon="ChevronDown"></span></summary><p>SMMБаза — система для автопостинга в сообщества VK, управления размещениями через супергруппы и автоматической подготовки отчётов со скриншотами.</p></details>
+            <details><summary>Сколько сообществ можно подключить?<span data-icon="ChevronDown"></span></summary><p>Количество зависит от условий подключения и тарифа. Укажите объём в заявке — команда предложит подходящую конфигурацию.</p></details>
+            <details><summary>Как работает интеграция с VK?<span data-icon="ChevronDown"></span></summary><p>Пользователь авторизуется через VK и подключает сообщества, которыми имеет право управлять. Система работает через официальный VK API.</p></details>
+            <details><summary>Как распределяются права в команде?<span data-icon="ChevronDown"></span></summary><p>Доступ можно разделять между администраторами, проверяющими и участниками команды — в соответствии с их задачами и проектами.</p></details>
+            <details><summary>Нужны ли браузерные макросы или расширения?<span data-icon="ChevronDown"></span></summary><p>Нет. Публикации выполняются через официальные возможности VK, без браузерных макросов и серых расширений.</p></details>
+            <details><summary>Можно ли собирать отчёты со скриншотами?<span data-icon="ChevronDown"></span></summary><p>Да. Можно выбрать период и сообщества, а также доступные в продукте параметры скриншотов и итогового документа.</p></details>
+            <details><summary>Что происходит после заявки?<span data-icon="ChevronDown"></span></summary><p>Команда разбирает ваш сценарий и показывает, как собрать его в SMMБазе. В текущем демо-режиме форма не отправляет данные на сервер.</p></details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a class="brand" href="#top"><img src="./logo.svg" alt="SMMБаза" width="178" height="46" /></a><p>Управление сообществами VK, публикациями и отчётами.</p></div>
+        <div><h3>Продукт</h3><a href="#supergroups">Возможности</a><a href="#supergroups">Супергруппы</a><a href="#reports">Отчёты</a><a data-market-link hidden href="">Маркет</a></div>
+        <div><h3>Компания</h3><span>Разработано в России</span></div>
+        <div><h3>Документы</h3><a data-terms-link hidden href="">Пользовательское соглашение</a><a data-privacy-link-footer hidden href="">Политика конфиденциальности</a><span data-legal-fallback>Юридические ссылки добавим перед публикацией.*</span></div>
+      </div>
+      <div class="container footer-bottom"><span>© SMMБаза. Все права защищены.</span><span data-year></span></div>
+    </footer>
+    <div class="lightbox" data-lightbox hidden>
+      <div class="lightbox-backdrop" data-lightbox-close></div>
+      <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Закрыть просмотр">×</button>
+        <img data-lightbox-preview alt="" />
+      </div>
+    </div>
+    <a class="floating-demo-cta js-demo-cta" href="#demo">Запросить демо <span data-icon="ArrowUpRight"></span></a>
+    <script type="module" src="./src/main.js?v=5"></script>
+  </body>
+</html>

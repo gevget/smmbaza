@@ -1,0 +1,18 @@
+# Local browser QA artifacts
+.chrome-qa-*/
+qa-*.png
+
+# Local configuration and runtime files
+.env
+.env.*
+!.env.example
+*.local
+
+# Internal prompt pack (not for the public repository)
+docs.zip
+SMMBaza Prompt Pack — *.md
+
+# OS/editor noise
+Thumbs.db
+.DS_Store
+.vscode/

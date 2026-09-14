@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gevget.github.io/smmbaza/sitemap.xml

@@ -1,0 +1,46 @@
+export const processSteps = [
+  ['LogIn', 'Войти через VK'],
+  ['Link', 'Подключить сообщества'],
+  ['Layers3', 'Создать супергруппу'],
+  ['Send', 'Опубликовать'],
+  ['FileCheck2', 'Получить отчёт'],
+];
+
+export const calculatorDefaults = {
+  communities: 30,
+  posts: 20,
+  screenshotsPerPost: 1,
+  manualMinutesPerScreenshot: 2,
+  setupMinutes: 10,
+};
+
+export const calculatorLimits = {
+  communities: [1, 1000, 1],
+  posts: [1, 1000, 1],
+  screenshotsPerPost: [1, 10, 1],
+  manualMinutesPerScreenshot: [0.1, 30, 0.1],
+  setupMinutes: [1, 240, 1],
+};
+
+export const faqItems = [
+  {
+    id: 'what-is-smmbaza',
+    question: 'Что такое SMMБаза?',
+    answer: 'SMMБаза — система для автопостинга в сообщества VK, управления размещениями через супергруппы и автоматической подготовки отчётов со скриншотами.',
+  },
+  {
+    id: 'communities-limit',
+    question: 'Сколько сообществ можно подключить?',
+    answer: 'Количество зависит от условий подключения и тарифа. Укажите объём в заявке — команда предложит подходящую конфигурацию.',
+  },
+  {
+    id: 'vk-integration',
+    question: 'Как работает интеграция с VK?',
+    answer: 'Пользователь авторизуется через VK и подключает сообщества, которыми имеет право управлять. Система работает через официальный VK API.',
+  },
+  {
+    id: 'reports',
+    question: 'Можно ли собирать отчёты со скриншотами?',
+    answer: 'Да. Можно выбрать период и сообщества, а также доступные в продукте параметры скриншотов и итогового документа.',
+  },
+];
