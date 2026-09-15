@@ -1,6 +1,6 @@
 import { siteConfig, isConfiguredUrl } from './config/site-config.js';
 import { mediaManifest } from './content/media.js';
-import { calculatorDefaults, calculatorLimits, processSteps } from './content/site-content.js';
+import { calculateWork, formatDuration, formatNumber } from './calculator.js';
 
 const iconPaths = {
   ArrowDown: '<path d="M12 5v14m7-7-7 7-7-7"/>',
@@ -53,8 +53,17 @@ function renderMediaSlots() {
       const imageClass = media.kind === 'real-screenshot' ? 'media-image media-image-screenshot' : 'media-image';
       const loading = media.id === 'hero-system' ? 'eager' : 'lazy';
       const fetchPriority = media.id === 'hero-system' ? 'high' : 'auto';
-      const sizes = media.id === 'hero-system' ? '(max-width: 820px) 100vw, 560px' : '(max-width: 820px) 100vw, 1240px';
-      mount.innerHTML = `<div class="media-frame" data-media-kind="${media.kind}" style="--desktop-aspect:${media.desktopAspect};--mobile-aspect:${media.mobileAspect}" role="group" aria-label="${media.label}. ${media.description}"><img class="${imageClass}" data-lightbox-image tabindex="0" role="button" aria-label="Открыть изображение: ${media.alt}" src="${media.src}" alt="${media.alt}" width="${media.width}" height="${media.height}" loading="${loading}" fetchpriority="${fetchPriority}" sizes="${sizes}" decoding="async" /></div>`;
+      const compactMedia = media.id.startsWith('workflow-') || ['market-existing', 'ai-rewrites'].includes(media.id);
+      const fullWidthMedia = media.id.startsWith('platform-');
+      const sizes = media.id === 'hero-system'
+        ? '(max-width: 820px) calc(100vw - 40px), 560px'
+        : compactMedia
+          ? '(max-width: 820px) calc(100vw - 40px), 400px'
+          : fullWidthMedia
+            ? '(max-width: 820px) calc(100vw - 40px), 1240px'
+            : '(max-width: 820px) calc(100vw - 40px), 640px';
+      const srcSet = media.srcSet ? ` srcset="${media.srcSet}"` : '';
+      mount.innerHTML = `<div class="media-frame" data-media-kind="${media.kind}" style="--desktop-aspect:${media.desktopAspect};--mobile-aspect:${media.mobileAspect}" role="group" aria-label="${media.label}. ${media.description}"><picture><img class="${imageClass}" data-lightbox-image tabindex="0" role="button" aria-label="Открыть изображение: ${media.alt}" src="${media.src}"${srcSet} alt="${media.alt}" width="${media.width}" height="${media.height}" loading="${loading}" fetchpriority="${fetchPriority}" sizes="${sizes}" decoding="async" /></picture></div>`;
       return;
     }
     mount.innerHTML = `<div class="media-placeholder" data-media-kind="${media.kind}" style="--desktop-aspect:${media.desktopAspect};--mobile-aspect:${media.mobileAspect}" role="img" aria-label="${media.label}. ${media.description}"><div class="placeholder-icon">${icon(media.kind === 'real-screenshot' ? 'Camera' : 'Image')}</div><div><p class="placeholder-label">${media.label}</p><p class="placeholder-description">Место для утверждённого изображения. ${media.description}</p></div><div class="placeholder-meta"><span>ID: ${media.id}</span><span>${media.kind}</span><span>Desktop ${media.desktopAspect}</span><span>Mobile ${media.mobileAspect}</span></div></div>`;
@@ -87,8 +96,7 @@ function configureLinks() {
   }
   if (isConfiguredUrl(siteConfig.SITE_URL)) {
     document.querySelector('meta[name="robots"]')?.setAttribute('content', 'index, follow');
-    const canonical = document.createElement('link');
-    canonical.rel = 'canonical';
+    const canonical = document.querySelector('link[rel="canonical"]') || document.head.appendChild(Object.assign(document.createElement('link'), { rel: 'canonical' }));
     canonical.href = siteConfig.SITE_URL;
     document.head.appendChild(canonical);
     const ogUrl = document.querySelector('meta[property="og:url"]') || document.head.appendChild(Object.assign(document.createElement('meta'), { property: 'og:url' }));
@@ -98,6 +106,21 @@ function configureLinks() {
     if (isConfiguredUrl(siteConfig.OG_IMAGE_URL)) data.image = siteConfig.OG_IMAGE_URL;
     document.querySelector('#structured-data').textContent = JSON.stringify(data);
   }
+}
+
+function setupNavDropdown() {
+  const dropdown = document.querySelector('[data-nav-dropdown]');
+  if (!dropdown) return;
+  dropdown.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => dropdown.removeAttribute('open')));
+  document.addEventListener('click', (event) => {
+    if (dropdown.open && !dropdown.contains(event.target)) dropdown.removeAttribute('open');
+  });
+  dropdown.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      dropdown.removeAttribute('open');
+      dropdown.querySelector('summary')?.focus();
+    }
+  });
 }
 
 function trackEvent(name, payload = {}) {
@@ -143,45 +166,16 @@ function setupMenu() {
     if (event.key === 'Escape' && !menu.hidden) setOpen(false);
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 820 && !menu.hidden) setOpen(false);
+    if (window.innerWidth > 1120 && !menu.hidden) setOpen(false);
   });
-}
-
-function clampNumber(value, [min, max], fallback) {
-  const number = Number(value);
-  if (!Number.isFinite(number)) return fallback;
-  return Math.min(max, Math.max(min, number));
-}
-
-function formatNumber(value) {
-  return new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 1 }).format(value);
-}
-
-function formatDuration(minutes) {
-  const rounded = Math.max(0, Math.round(minutes));
-  const hours = Math.floor(rounded / 60);
-  const mins = rounded % 60;
-  if (!hours) return `${mins} мин`;
-  if (!mins) return `${hours} ч`;
-  return `${hours} ч ${mins} мин`;
-}
-
-function calculateWork(values) {
-  const communities = clampNumber(values.communities, calculatorLimits.communities, calculatorDefaults.communities);
-  const posts = clampNumber(values.posts, calculatorLimits.posts, calculatorDefaults.posts);
-  const screenshotsPerPost = clampNumber(values.screenshotsPerPost, calculatorLimits.screenshotsPerPost, calculatorDefaults.screenshotsPerPost);
-  const manualMinutesPerScreenshot = clampNumber(values.manualMinutesPerScreenshot, calculatorLimits.manualMinutesPerScreenshot, calculatorDefaults.manualMinutesPerScreenshot);
-  const setupMinutes = clampNumber(values.setupMinutes, calculatorLimits.setupMinutes, calculatorDefaults.setupMinutes);
-  const placements = communities * posts;
-  const screenshots = placements * screenshotsPerPost;
-  const manualMinutes = screenshots * manualMinutesPerScreenshot;
-  return { placements, screenshots, manualMinutes, setupMinutes, difference: Math.max(0, manualMinutes - setupMinutes) };
 }
 
 function setupCalculator() {
   const form = document.querySelector('[data-calculator]');
   const results = document.querySelector('[data-calculator-results]');
   if (!form || !results) return;
+  let initialized = false;
+  let pulseTimer;
   const update = () => {
     const values = Object.fromEntries(new FormData(form).entries());
     const result = calculateWork(values);
@@ -199,6 +193,13 @@ function setupCalculator() {
     results.querySelector('[data-result="manualHours"]').textContent = formatNumber(result.manualMinutes / 60);
     results.querySelector('[data-result="setupMinutes"]').textContent = formatNumber(result.setupMinutes);
     results.querySelector('[data-result="difference"]').textContent = formatDuration(result.difference);
+    if (initialized && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      results.classList.remove('is-updating');
+      window.requestAnimationFrame(() => results.classList.add('is-updating'));
+      window.clearTimeout(pulseTimer);
+      pulseTimer = window.setTimeout(() => results.classList.remove('is-updating'), 260);
+    }
+    initialized = true;
     trackEvent('calculator_change', { communities: result.placements ? Number(values.communities) : undefined });
   };
   form.addEventListener('input', update);
@@ -214,6 +215,7 @@ function setupPlatformCarousel() {
   const counter = carousel.querySelector('[data-platform-counter]');
   if (!slides.length || !previous || !next || !counter) return;
   let activeIndex = 0;
+  let pointerStartX = null;
   const setActive = (index) => {
     const nextIndex = (index + slides.length) % slides.length;
     const changed = activeIndex !== nextIndex;
@@ -222,12 +224,37 @@ function setupPlatformCarousel() {
       const active = slideIndex === activeIndex;
       slide.hidden = !active;
       slide.setAttribute('aria-hidden', String(!active));
+      slide.classList.toggle('is-active', active);
     });
+    const preloadIndex = (activeIndex + 1) % slides.length;
+    const preloadImage = slides[preloadIndex].querySelector('img');
+    if (preloadImage) preloadImage.loading = 'eager';
     counter.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
     if (changed) trackEvent('platform_slide_change', { slide: activeIndex + 1 });
   };
   previous.addEventListener('click', () => setActive(activeIndex - 1));
   next.addEventListener('click', () => setActive(activeIndex + 1));
+  carousel.tabIndex = 0;
+  carousel.setAttribute('aria-label', 'Слайдер экранов платформы. Используйте стрелки влево и вправо.');
+  carousel.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      setActive(activeIndex - 1);
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      setActive(activeIndex + 1);
+    }
+  });
+  carousel.addEventListener('pointerdown', (event) => { pointerStartX = event.clientX; });
+  carousel.addEventListener('pointerup', (event) => {
+    if (pointerStartX === null) return;
+    const distance = event.clientX - pointerStartX;
+    pointerStartX = null;
+    if (Math.abs(distance) < 48) return;
+    setActive(activeIndex + (distance < 0 ? 1 : -1));
+  });
+  carousel.addEventListener('pointercancel', () => { pointerStartX = null; });
   setActive(0);
 }
 
@@ -295,6 +322,9 @@ function setupScrollSpy() {
       if (isActive) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     });
+    const dropdown = document.querySelector('[data-nav-dropdown]');
+    const childIsActive = dropdown?.querySelector('a[aria-current="page"]');
+    if (dropdown) dropdown.dataset.active = String(Boolean(childIsActive));
   };
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
@@ -307,11 +337,32 @@ function setupFloatingDemoCta() {
   if (!cta) return;
   const update = () => {
     const demoVisible = demo && demo.getBoundingClientRect().top < window.innerHeight * 0.72 && demo.getBoundingClientRect().bottom > 0;
-    cta.classList.toggle('is-visible', window.scrollY > 420 && !demoVisible);
+    const editing = document.activeElement?.matches('input, textarea, select, [contenteditable="true"]');
+    cta.classList.toggle('is-visible', window.scrollY > 420 && !demoVisible && !editing);
   };
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
+  document.addEventListener('focusin', update);
+  document.addEventListener('focusout', () => window.requestAnimationFrame(update));
   update();
+}
+
+function setupRevealAnimations() {
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const elements = [...document.querySelectorAll('main .section > .container')];
+  elements.forEach((element, index) => {
+    element.dataset.reveal = '';
+    element.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 45}ms`);
+  });
+  document.documentElement.classList.add('reveal-ready');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-revealed');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  elements.forEach((element) => observer.observe(element));
 }
 
 function setFieldError(name, message) {
@@ -378,7 +429,7 @@ function setupAnalyticsClicks() {
   document.querySelectorAll('.js-demo-cta').forEach((button) => button.addEventListener('click', () => trackEvent('demo_cta_click', { source: button.closest('header') ? 'header' : 'page' })));
   document.querySelectorAll('[data-vk-login]').forEach((link) => link.addEventListener('click', () => trackEvent('vk_login_click')));
   document.querySelectorAll('[data-market-link]').forEach((link) => link.addEventListener('click', () => trackEvent('market_click')));
-  document.querySelectorAll('details').forEach((detail) => detail.addEventListener('toggle', () => { if (detail.open) trackEvent('faq_open', { question_id: detail.querySelector('summary')?.textContent?.trim() }); }));
+  document.querySelectorAll('.faq-list details').forEach((detail) => detail.addEventListener('toggle', () => { if (detail.open) trackEvent('faq_open', { question_id: detail.querySelector('summary')?.textContent?.trim() }); }));
 }
 
 document.querySelector('[data-year]').textContent = String(new Date().getFullYear());
@@ -386,6 +437,7 @@ mountIcons();
 renderMediaSlots();
 configureLinks();
 setupMenu();
+setupNavDropdown();
 setupCalculator();
 setupPlatformCarousel();
 setupLightbox();
@@ -393,3 +445,4 @@ setupFloatingDemoCta();
 setupScrollSpy();
 setupDemoForm();
 setupAnalyticsClicks();
+setupRevealAnimations();

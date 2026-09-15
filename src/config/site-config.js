@@ -8,7 +8,7 @@ export const siteConfig = {
   ANALYTICS_ID: '',
   PARTNERSHIP_COPY: '',
   DEMO_MODE: true,
-  OG_IMAGE_URL: 'https://gevget.github.io/smmbaza/public/media/smmbaza-og-cover.png',
+  OG_IMAGE_URL: 'https://gevget.github.io/smmbaza/public/media/optimized/smmbaza-og-cover.jpg',
 };
 
 export const isConfiguredUrl = (value) => typeof value === 'string' && value.trim().length > 0;

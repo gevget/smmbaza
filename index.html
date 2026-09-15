@@ -9,13 +9,17 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="SMMБаза — автопостинг VK и отчёты со скриншотами" />
     <meta property="og:description" content="Публикации, авторепосты, реестр групп, супергруппы и отчёты со скриншотами в одном рабочем кабинете." />
-    <meta property="og:image" content="./public/media/smmbaza-og-cover.png" />
+    <meta property="og:url" content="https://gevget.github.io/smmbaza/" />
+    <meta property="og:image" content="https://gevget.github.io/smmbaza/public/media/optimized/smmbaza-og-cover.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="./public/media/smmbaza-og-cover.png" />
+    <meta name="twitter:title" content="SMMБаза — автопостинг и отчётность для VK" />
+    <meta name="twitter:description" content="Публикации, авторепосты, реестр групп, супергруппы и отчёты со скриншотами в одном кабинете." />
+    <meta name="twitter:image" content="https://gevget.github.io/smmbaza/public/media/optimized/smmbaza-og-cover.jpg" />
     <title>SMMБаза — автопостинг VK и отчёты со скриншотами</title>
+    <link rel="canonical" href="https://gevget.github.io/smmbaza/" />
     <link rel="icon" href="./public/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./public/favicon.svg" />
-    <link rel="stylesheet" href="./src/styles.css?v=5" />
+    <link rel="stylesheet" href="./src/styles.css?v=7" />
     <script type="application/ld+json" id="structured-data">
       {
         "@context": "https://schema.org",
@@ -36,14 +40,18 @@
           <img src="./logo.svg" alt="SMMБаза" width="178" height="46" />
         </a>
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="#supergroups">Возможности</a>
           <a href="#platform">Платформа</a>
-          <a href="#audience">Для кого</a>
-          <a href="#supergroups">Супергруппы</a>
-          <a href="#group-registry">Реестр групп</a>
-          <a href="#autoreposts">Авторепосты</a>
-          <a href="#reports">Отчёты</a>
+          <details class="nav-dropdown" data-nav-dropdown>
+            <summary>Возможности <span data-icon="ChevronDown"></span></summary>
+            <div class="nav-dropdown-panel">
+              <a href="#supergroups">Супергруппы</a>
+              <a href="#group-registry">Реестр групп</a>
+              <a href="#autoreposts">Авторепосты</a>
+              <a href="#reports">Отчёты</a>
+            </div>
+          </details>
           <a href="#workflow">Как это работает</a>
+          <a href="#calculator">Калькулятор</a>
           <a href="#trust">Безопасность</a>
           <a href="#roadmap">Развитие</a>
         </nav>
@@ -56,7 +64,6 @@
         </div>
       </div>
       <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация" hidden data-mobile-menu>
-        <a href="#supergroups">Возможности</a>
         <a href="#platform">Платформа</a>
         <a href="#audience">Для кого</a>
         <a href="#supergroups">Супергруппы</a>
@@ -64,6 +71,7 @@
         <a href="#autoreposts">Авторепосты</a>
         <a href="#reports">Отчёты</a>
         <a href="#workflow">Как это работает</a>
+        <a href="#calculator">Калькулятор</a>
         <a href="#trust">Безопасность</a>
         <a href="#roadmap">Развитие</a>
         <a class="button button-primary js-demo-cta" href="#demo">Запросить демо <span data-icon="ArrowUpRight"></span></a>
@@ -149,14 +157,14 @@
             <p class="eyebrow">Супергруппы</p>
             <h2 id="supergroups-title">Десятки сообществ. Одна супергруппа.</h2>
             <p class="section-lead">Объединяйте паблики одного клиента, региона или кампании и управляйте размещениями как единым проектом.</p>
-            <p>Создайте публикацию один раз. Для каждого сообщества оставьте общие параметры или задайте свою версию текста, изображения, watermark и времени выхода.</p>
+            <p>Создайте публикацию один раз. Для каждого сообщества оставьте общие параметры или задайте свою версию текста, изображения, водяного знака и времени выхода.</p>
             <p class="accent-note">Одна настройка для всех — или точная адаптация каждого размещения.</p>
           </div>
           <div class="section-media"><div data-media-id="supergroups"></div></div>
           <ul class="feature-list" aria-label="Возможности супергрупп">
             <li><span class="feature-icon" data-icon="Type"></span><span><strong>Свой текст</strong><small>Адаптируйте сообщение под аудиторию конкретного сообщества.</small></span></li>
             <li><span class="feature-icon" data-icon="Image"></span><span><strong>Своё изображение</strong><small>Назначьте отдельный креатив или используйте общий для всей супергруппы.</small></span></li>
-            <li><span class="feature-icon" data-icon="Stamp"></span><span><strong>Свой watermark</strong><small>Применяйте нужную маркировку отдельно для каждой площадки.</small></span></li>
+            <li><span class="feature-icon" data-icon="Stamp"></span><span><strong>Свой водяной знак</strong><small>Применяйте нужную маркировку отдельно для каждой площадки.</small></span></li>
             <li><span class="feature-icon" data-icon="Clock3"></span><span><strong>Своё время</strong><small>Планируйте публикации одновременно или разводите их по расписанию.</small></span></li>
           </ul>
           <div class="section-media secondary-media"><div data-media-id="post-variants"></div></div>
@@ -191,6 +199,19 @@
               <article class="role-card"><span class="role-icon" data-icon="Link"></span><span class="role-number">03</span><h3>Ответственный сотрудник</h3><p>Работа с порученными группами, публикациями и отчётами.</p></article>
             </div>
           </div>
+          <div class="feature-bridge" aria-labelledby="feature-bridge-title">
+            <div class="feature-bridge-heading">
+              <p class="eyebrow">Один рабочий контур</p>
+              <h3 id="feature-bridge-title">Как возможности связаны между собой</h3>
+            </div>
+            <ol class="feature-bridge-steps">
+              <li><span data-icon="Database"></span><strong>Реестр</strong><small>все сообщества</small></li>
+              <li><span data-icon="Type"></span><strong>Теги</strong><small>быстрые выборки</small></li>
+              <li><span data-icon="Layers3"></span><strong>Супергруппы</strong><small>рабочие наборы</small></li>
+              <li><span data-icon="Send"></span><strong>Публикация</strong><small>пост или авторепост</small></li>
+              <li><span data-icon="FileCheck2"></span><strong>Отчёт</strong><small>готовый результат</small></li>
+            </ol>
+          </div>
           <p class="temporary-note"><span aria-hidden="true">*</span> Названия и границы ролей сверим с финальной матрицей доступа продукта.</p>
         </div>
       </section>
@@ -199,7 +220,7 @@
         <div class="container split-grid autorepost-grid">
           <div class="section-media autorepost-media"><div data-media-id="autorepost-flow"></div></div>
           <div class="section-copy">
-            <p class="eyebrow">Авторепосты</p>
+            <p class="eyebrow">Авторепосты · В разработке*</p>
             <h2 id="autorepost-title">Один пост — во все нужные группы</h2>
             <p class="section-lead">Вставьте ссылку на исходный пост VK, выберите сообщества по тегам и запустите размещение по всей нужной выборке.</p>
             <ol class="autorepost-steps" aria-label="Сценарий авторепоста">
@@ -208,7 +229,7 @@
               <li><span class="autorepost-index">03</span><span><strong>Добавить текст и запустить</strong><small>При необходимости дополните сообщение и отправьте авторепост.</small></span></li>
             </ol>
             <p class="accent-note">Сценарий связывает реестр групп, супергруппы и массовую публикацию в одну операцию.</p>
-            <p class="temporary-note"><span aria-hidden="true">*</span> Демонстрационный визуал. Заменим на реальный экран авторепостов после его утверждения.</p>
+            <p class="temporary-note"><span aria-hidden="true">*</span> Сценарий находится в разработке. Демонстрационный визуал заменим на реальный экран после утверждения функции.</p>
           </div>
         </div>
       </section>
@@ -272,18 +293,18 @@
         <div class="container">
           <div class="section-heading-row proof-heading">
             <div class="section-copy narrow-copy">
-              <p class="eyebrow">Факты о продукте</p>
-              <h2 id="proof-title">Цифры добавим, когда подтвердим их у команды</h2>
+              <p class="eyebrow">Пример рабочего объёма*</p>
+              <h2 id="proof-title">Как выглядит один сценарий команды</h2>
             </div>
-            <p class="section-lead heading-lead">Пока здесь стоят безопасные временные формулировки — они отмечены звёздочкой и будут заменены перед публикацией.</p>
+            <p class="section-lead heading-lead">Возьмём стартовые значения калькулятора и покажем масштаб ручной работы без неподтверждённых обещаний продукта.</p>
           </div>
           <div class="proof-grid">
-            <article class="proof-card"><strong>Уточняется*</strong><span>количество подключаемых сообществ</span></article>
-            <article class="proof-card"><strong>Уточняется*</strong><span>среднее время подготовки отчёта</span></article>
-            <article class="proof-card"><strong>Уточняется*</strong><span>объём публикаций за период</span></article>
-            <article class="proof-card"><strong>Уточняется*</strong><span>условия и формат подключения</span></article>
+            <article class="proof-card"><strong>30*</strong><span>сообществ в рабочей выборке</span></article>
+            <article class="proof-card"><strong>20*</strong><span>публикаций за выбранный период</span></article>
+            <article class="proof-card"><strong>600*</strong><span>размещений для проверки и отчёта</span></article>
+            <article class="proof-card"><strong>≈ 20 ч*</strong><span>ручной работы при двух минутах на скриншот</span></article>
           </div>
-          <p class="temporary-note"><span aria-hidden="true">*</span> Временный контент. Заменим на подтверждённые показатели, условия и сроки после согласования с командой продукта.</p>
+          <p class="temporary-note"><span aria-hidden="true">*</span> Это иллюстративный расчёт, а не статистика клиента и не лимиты продукта. Значения можно изменить в калькуляторе ниже.</p>
         </div>
       </section>
 
@@ -303,7 +324,7 @@
             </article>
             <article class="workflow-card">
               <div class="workflow-media"><div data-media-id="workflow-post"></div></div>
-              <div class="workflow-card-copy"><span class="workflow-index">02</span><h3>Подготовить и опубликовать</h3><p>Текст, изображения, watermark и расписание задаются одним сценарием.</p></div>
+              <div class="workflow-card-copy"><span class="workflow-index">02</span><h3>Подготовить и опубликовать</h3><p>Текст, изображения, водяной знак и расписание задаются одним сценарием.</p></div>
             </article>
             <article class="workflow-card">
               <div class="workflow-media"><div data-media-id="workflow-report"></div></div>
@@ -326,7 +347,7 @@
             <li><span class="connection-index">01</span><span data-icon="LogIn"></span><h3>Войти через VK</h3><p>Авторизуйтесь в привычном аккаунте и перейдите к подключению рабочих сообществ.</p></li>
             <li><span class="connection-index">02</span><span data-icon="Link"></span><h3>Выбрать сообщества</h3><p>Подключите площадки, которыми вы управляете, и объедините их в супергруппы.</p></li>
             <li><span class="connection-index">03</span><span data-icon="UsersRound"></span><h3>Настроить роли</h3><p>Главный создатель назначает управляющих, а управляющие — ответственных сотрудников.</p></li>
-            <li><span class="connection-index">04</span><span data-icon="Send"></span><h3>Запустить публикацию</h3><p>Задайте текст, медиа, watermark и время — система подготовит размещения и отчёт.</p></li>
+            <li><span class="connection-index">04</span><span data-icon="Send"></span><h3>Запустить публикацию</h3><p>Задайте текст, медиа, водяной знак и время — система подготовит размещения и отчёт.</p></li>
           </ol>
           <div class="connection-note"><span data-icon="BadgeCheck"></span><p>Работа строится через официальный VK API. Права доступа остаются под контролем вашей команды.</p><a class="button button-secondary" href="#demo">Разобрать мой сценарий <span data-icon="ArrowUpRight"></span></a></div>
         </div>
@@ -393,13 +414,13 @@
                 <li><span data-icon="Send"></span><span><strong>Автопостинг</strong><small>Планирование и публикация в подключённых сообществах.</small></span></li>
                 <li><span data-icon="Layers3"></span><span><strong>Супергруппы</strong><small>Управление площадками как одним проектом.</small></span></li>
                 <li><span data-icon="FileCheck2"></span><span><strong>Отчёты</strong><small>Сбор публикаций и скриншотов за выбранный период.</small></span></li>
-                <li><span data-icon="Store"></span><span><strong>Маркет</strong><small>Раздел платформы для развития контентной экосистемы.</small></span></li>
+                <li><span data-icon="Store"></span><span><strong>Маркет</strong><small>Существующий раздел платформы. Точное назначение и ссылка уточняются.*</small></span></li>
               </ul>
             </div>
             <div class="roadmap-column">
               <div class="status-heading"><span class="status-dot status-violet"></span><h3>В разработке</h3></div>
               <div class="roadmap-grid">
-                <article class="roadmap-card"><span class="roadmap-badge">Новый сценарий*</span><span data-icon="Send"></span><h3>Авторепосты</h3><p>Ссылка на исходный пост, выбор групп по тегам и дополнительный текст.</p></article>
+                <article class="roadmap-card"><span class="roadmap-badge">В разработке*</span><span data-icon="Send"></span><h3>Авторепосты</h3><p>Ссылка на исходный пост, выбор групп по тегам и дополнительный текст.</p></article>
                 <article class="roadmap-card"><span class="roadmap-badge">Скоро</span><span data-icon="Sparkles"></span><h3>AI-помощник</h3><p>Один исходный пост — до 10 вариантов рерайта для разных площадок.</p></article>
                 <article class="roadmap-card"><span class="roadmap-badge">Скоро</span><span data-icon="Images"></span><h3>Генерация изображений</h3><p>Создание и адаптация визуалов внутри контентного процесса.</p></article>
                 <article class="roadmap-card"><span class="roadmap-badge">Скоро</span><span data-icon="ChartNoAxesCombined"></span><h3>Расширенная аналитика</h3><p>Оценка публикаций, площадок и кампаний.</p></article>
@@ -420,8 +441,8 @@
             <p class="eyebrow">Запросить демо</p>
             <h2 id="demo-title">Покажем ваш процесс в SMMБазе</h2>
             <p class="section-lead">Разберём работу на вашем количестве сообществ, публикаций и отчётов.</p>
-            <p>Разберём ваш сценарий: от подключения сообществ до готового отчёта.</p>
-            <p class="temporary-note"><span aria-hidden="true">*</span> Срок ответа и формат демо уточняются — этот текст временный.</p>
+            <p>Покажем путь от подключения сообществ до готового отчёта и ответим на вопросы по ролям, тегам и супергруппам.</p>
+            <p class="temporary-note"><span aria-hidden="true">*</span> Предварительный формат — онлайн-демо около 30 минут. Точное время и способ связи согласуем после заявки.</p>
             <div class="final-mark" aria-hidden="true"><span>01</span><span>от публикации<br />до отчёта</span></div>
           </div>
           <form class="demo-form" data-demo-form novalidate>
@@ -446,7 +467,7 @@
             <details><summary>Сколько сообществ можно подключить?<span data-icon="ChevronDown"></span></summary><p>Количество зависит от условий подключения и тарифа. Укажите объём в заявке — команда предложит подходящую конфигурацию.</p></details>
             <details><summary>Как работает интеграция с VK?<span data-icon="ChevronDown"></span></summary><p>Пользователь авторизуется через VK и подключает сообщества, которыми имеет право управлять. Система работает через официальный VK API.</p></details>
             <details><summary>Как распределяются права в команде?<span data-icon="ChevronDown"></span></summary><p>Главный создатель управляет всей структурой и создаёт управляющих. Управляющие работают с реестром групп и создают ответственных сотрудников, а сотрудники получают доступ к порученным площадкам.</p></details>
-            <details><summary>Как работают авторепосты?<span data-icon="ChevronDown"></span></summary><p>Вы добавляете ссылку на исходный пост, выбираете группы по тегам и при необходимости добавляете текст перед запуском авторепоста.</p></details>
+            <details><summary>Как будут работать авторепосты?<span data-icon="ChevronDown"></span></summary><p>Функция находится в разработке.* Планируемый сценарий: добавить ссылку на исходный пост, выбрать группы по тегам и при необходимости дополнить текст перед запуском.</p></details>
             <details><summary>Что такое реестр групп?<span data-icon="ChevronDown"></span></summary><p>Это единый список подключённых сообществ с тегами, ответственными и объединением в супергруппы. Главный создатель и управляющие могут работать с этой структурой.</p></details>
             <details><summary>Нужны ли браузерные макросы или расширения?<span data-icon="ChevronDown"></span></summary><p>Нет. Публикации выполняются через официальные возможности VK, без браузерных макросов и серых расширений.</p></details>
             <details><summary>Можно ли собирать отчёты со скриншотами?<span data-icon="ChevronDown"></span></summary><p>Да. Можно выбрать период и сообщества, а также доступные в продукте параметры скриншотов и итогового документа.</p></details>
@@ -473,6 +494,6 @@
       </div>
     </div>
     <a class="floating-demo-cta js-demo-cta" href="#demo">Запросить демо <span data-icon="ArrowUpRight"></span></a>
-    <script type="module" src="./src/main.js?v=5"></script>
+    <script type="module" src="./src/main.js?v=9"></script>
   </body>
 </html>
